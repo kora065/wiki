@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Wikipedia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="edit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+  </head>
+<body>
+    <div class="container">
+<form >
+
+  <input type="text" placeholder="what are you looking for today?">
+  <button type="Submit">Search</button>
+</form>
+
+    </div>
+    <div style="text-align: center; margin: 20px;">
+      <h2>Markdown to HTML Converter</h2>
+      <textarea id="markdownInput" rows="10" cols="50" placeholder="Enter your Markdown here..."></textarea>
+      <br>
+      <button onclick="convertMarkdown()">Convert</button>
+      <br>
+      <textarea id="htmlOutput" rows="10" cols="50" placeholder="Converted HTML will appear here..." readonly></textarea>
+  </div>
+  
+  
+  <script>
+      function convertMarkdown() {
+          var converter = new showdown.Converter();
+          var text = document.getElementById('markdownInput').value;
+          var html = converter.makeHtml(text);
+          document.getElementById('htmlOutput').value = html;
+      }
+  </script>
+</body>
+</html>
